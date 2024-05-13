@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name="colorPrimary">#FFFFFF</color> <!-- 白色 -->
+    <color name="colorPrimaryDark">#F0F0F0</color> <!-- 稍微深一点的灰色，用作状态栏 -->
+    <color name="colorAccent">#009688</color> <!-- 一个强调色，用作按钮等 -->
+    <color name="colorTextPrimary">#DE000000</color> <!-- 主要的文本颜色，87% 的黑色 -->
+    <color name="colorTextSecondary">#8A000000</color> <!-- 次要的文本颜色 -->
+
 </resources>

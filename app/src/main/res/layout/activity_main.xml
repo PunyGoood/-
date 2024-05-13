@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:ignore="ExtraText">
 
 
     <!-- 时钟按钮 -->
@@ -16,7 +17,7 @@
         android:layout_margin="16dp"
         android:layout_marginStart="108dp"
         android:layout_marginBottom="16dp"
-        android:text="24:00"
+        android:text="历史记录"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -41,7 +42,7 @@
         android:id="@+id/button_mic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="话筒"
+        android:text="语音翻译"
         app:layout_constraintCircle="@+id/button_keyboard"
         app:layout_constraintCircleAngle="45"
         app:layout_constraintCircleRadius="100dp"
@@ -54,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="484dp"
         android:layout_marginEnd="160dp"
-        android:text="键盘"
+        android:text="文本翻译"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,11 +63,41 @@
         android:id="@+id/button_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="图片"
+        android:text="图片翻译"
         app:layout_constraintCircle="@+id/button_keyboard"
         app:layout_constraintCircleAngle="315"
         app:layout_constraintCircleRadius="100dp"
-        tools:layout_editor_absoluteX="230dp"
-        tools:layout_editor_absoluteY="310dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_keyboard" />
+
+    <!--<Button
+        android:id="@+id/button_personal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="708dp"
+        android:text="个人中心"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />-->
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@null"
+        android:gravity="center"
+        android:hint="欢迎使用圣人翻译"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="237dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_keyboard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.649" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+

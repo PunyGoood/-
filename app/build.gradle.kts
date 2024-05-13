@@ -47,11 +47,11 @@ android {
 }
 
 
-dependencies {
-    implementation("androidx.constraintlayout:constraint-layout:2.1.4")
-}
+
+
 
 dependencies {
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -71,4 +71,24 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+
+    implementation ("androidx.cardview:cardview:1.0.0")
+    //网络访问
+    implementation ("com.squareup.okhttp3:okhttp:3.10.0")
+    //下拉框
+
+    //卡片视图
+/*    implementation ("androidx.cardview:cardview:1.0.0")*/
+    //GSON解析
+    implementation ("com.squareup.retrofit2:converter-gson:2.4.0")
+
+
 }
+/*
+dependencies {
+    implementation ("com.github.arcadefire:nice-spinner:1.4")
+}
+dependencies {
+    implementation ("androidx.cardview:cardview:1.0.0")
+    implementation ("com.angmarch.views:nice-spinner:2.2.2")
+}*/

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!-- Other resources like strings, colors -->
+<!-- Define a style for the Spinner -->
+<style name="MySpinnerStyle" parent="Widget.AppCompat.Spinner.DropDown">
+    <!-- Customize the Spinner appearance here -->
+    <item name="android:dropDownWidth">wrap_content</item>
+    <item name="android:popupBackground">@drawable/your_popup_background</item>
+    <item name="android:dropDownSelector">@drawable/your_drop_down_selector</item>
+</style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+<!-- Define a background drawable for the popup, if not already defined -->
+<drawable name="your_popup_background">#FFFFFF</drawable>
+
+<!-- Define an item selector drawable for the drop-down list, if not already defined -->
+<item name="your_drop_down_selector" type="drawable">@drawable/item_selector</item>
+</resources>

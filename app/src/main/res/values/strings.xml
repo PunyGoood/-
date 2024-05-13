@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">test1</string>
     <string name="roll">Roll</string>
+    <string name="choose_language">选择语言</string>
 </resources>
