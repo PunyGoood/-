@@ -1,10 +1,5 @@
 package com.example.test1
 
-import com.example.test1.KeyboardActivity
-import com.example.test1.SettingsActivity
-import com.example.test1.MicActivity
-import com.example.test1.ImageActivity
-
 import android.content.ClipData
 import android.content.Intent
 import android.os.Bundle
@@ -15,15 +10,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.test1.ClockActivity
-import com.example.test1.R
-import java.util.LinkedList
-import kotlin.reflect.KClass
 
 
-
-
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private val beforeLay: LinearLayout? = null //翻译之前的布局
 
@@ -70,7 +59,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -83,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
         // 历史记录按钮的点击事件
         buttonClock.setOnClickListener {
-            val clockIntent = Intent(this, ClockActivity::class.java)
+            val clockIntent = Intent(this, TranslationRecordActivity::class.java)
             startActivity(clockIntent)
         }
 
@@ -108,7 +96,7 @@ class MainActivity : AppCompatActivity() {
 
         // 图片按钮的点击事件
         buttonImage.setOnClickListener {
-            val imageIntent = Intent(this, ImageActivity::class.java)
+            val imageIntent = Intent(this, ImageTransActivity::class.java)
             startActivity(imageIntent)
         }
     }

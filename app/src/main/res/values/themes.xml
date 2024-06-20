@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <style name="Theme.Test1" parent="android:Theme.Material.Light.NoActionBar" />
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <!--正常主题-->
+    <style name="LightTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/red</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="myBgColor">@color/white</item>
+        <item name="background">@color/white</item>
+        <item name="myTextColor">@color/black</item>
+        <item name="myButtonColor">@color/black</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <!--黑暗主题-->
+    <style name="NightTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/red</item>
+        <item name="colorAccent">@color/black</item>
+        <item name="myBgColor">@color/black</item>
+        <item name="background">@color/black</item>
+        <item name="myTextColor">@color/white</item>
+        <item name="myButtonColor">@color/white</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="circleDialog" parent="android:style/Theme.Dialog">
+        <!-- 背景透明,设置圆角对话框必须设置背景透明，否则四角会有背景色小块-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 没有标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 背景模糊 -->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
 </resources>

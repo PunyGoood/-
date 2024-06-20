@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="在线翻译"
+            android:text="圣人翻译"
             android:textColor="#000"
             android:textSize="18sp" />
 
@@ -84,6 +84,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <ImageView
+                    android:id="@+id/icon_change"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="10dp"
@@ -134,8 +135,8 @@
                 <!--清空输入内容-->
                 <ImageView
                     android:id="@+id/iv_clear_tx"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginRight="8dp"
@@ -183,8 +184,8 @@
                         <!--复制翻译出来的结果-->
                         <ImageView
                             android:id="@+id/iv_copy_tx"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:layout_marginRight="4dp"
                             android:layout_marginBottom="4dp"
                             android:padding="4dp"
@@ -214,6 +215,22 @@
                     android:textColorLink="#ABABAB"
                     android:textSize="16sp" />
             </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_share"
+                android:visibility="invisible"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/stroke_black_radus"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="分享"
+                android:textColor="#000"
+                android:textColorLink="#ABABAB"
+                android:textSize="16sp" />
+
         </LinearLayout>
     </ScrollView>
 

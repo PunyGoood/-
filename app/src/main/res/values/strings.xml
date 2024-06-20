@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">test1</string>
+    <string name="app_name">圣人翻译</string>
     <string name="roll">Roll</string>
     <string name="choose_language">选择语言</string>
+
+    <string name="enter_text_to_translate">Enter text to translate</string>
+    <string name="translate">Translate</string>
 </resources>

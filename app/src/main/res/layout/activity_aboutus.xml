@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\n关于我们\n"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_gravity="center" />
+
+            <!-- Insert ImageView here -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img"
+                android:scaleType="centerCrop"/>
+
+            <!-- Continue with the rest of the TextViews -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="\n版本号：1.0\n"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="官方网站：https://github.com/PunyGoood/-\n"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Copyright 圣人工作室™ All Rights Reserved\n"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_gravity="center" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

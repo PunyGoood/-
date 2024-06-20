@@ -1,7 +1,11 @@
 package com.example.test1
 
+/*import org.angmarch.views.NiceSpinner
+import kotlinx.android.synthetic.main.activity_main.**/
+
 import android.content.ClipData
 import android.content.ClipboardManager
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
@@ -10,7 +14,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
-import android.widget.AdapterView.*
+import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -19,14 +23,16 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
-
-/*import org.angmarch.views.NiceSpinner
-import kotlinx.android.synthetic.main.activity_main.**/
-import okhttp3.*
-import java.util.*
-
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
 import java.io.IOException
-import android.widget.ArrayAdapter
+import java.util.LinkedList
+import java.util.Random
+
+
 class KeyboardActivity() : AppCompatActivity(), Parcelable {
 
     var fromLanguage = "auto" //目标语言
@@ -43,7 +49,7 @@ class KeyboardActivity() : AppCompatActivity(), Parcelable {
             "中文 → 阿拉伯语", "中文 → 西班牙语 ", "中文 → 意大利语"
         )
     )
-    
+    private lateinit var iconchange: ImageView
     private lateinit var ivClearTx: ImageView
     private lateinit var ivCopyTx: ImageView // 声明 iv_copy_tx
     private lateinit var tvTranslation: TextView // 声明 tv_translation
@@ -55,9 +61,11 @@ class KeyboardActivity() : AppCompatActivity(), Parcelable {
     private lateinit var beforeLay: LinearLayout // 声明 before_lay
     private lateinit var afterLay: LinearLayout // 声明 after_lay
 
-
     private lateinit var tv_from: TextView // 声明 tv_from
     private lateinit var tv_to: TextView
+    var historyManager: TranslationHistoryManager? = null
+
+    private var tvShare: TextView? = null
     constructor(parcel: Parcel) : this() {
 
     }
@@ -76,7 +84,7 @@ class KeyboardActivity() : AppCompatActivity(), Parcelable {
         resultLay = findViewById(R.id.result_lay)
         beforeLay = findViewById(R.id.before_lay)
         afterLay = findViewById(R.id.after_lay)
-
+        iconchange = findViewById(R.id.icon_change)
         tv_from = findViewById(R.id.tv_from)
         tv_to = findViewById(R.id.tv_to)
         myClipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
@@ -93,6 +101,14 @@ class KeyboardActivity() : AppCompatActivity(), Parcelable {
 
         editTextListener()
         spinnerListener()
+
+        historyManager = TranslationHistoryManager(this)
+        tvShare = findViewById(R.id.tv_share)
+        tvShare?.setOnClickListener { share(); }
+    }
+
+    private fun share() {
+        IntentUtils.shareString(this, content);
     }
 
     private fun onClick() {
@@ -109,12 +125,43 @@ class KeyboardActivity() : AppCompatActivity(), Parcelable {
         tvTranslation.setOnClickListener {
             transition()
         }
+
+        iconchange.setOnClickListener {
+            // 交换源语言和目标语言
+            val tempLanguage = fromLanguage
+            fromLanguage = toLanguage
+            toLanguage = tempLanguage
+
+            // 更新 Spinner 中的选择项以反映语言交换
+            // 首先找到当前选中的位置
+            val selectedPosition = when (fromLanguage) {
+                "auto" -> 0
+                "zh" -> when (toLanguage) {
+                    "en" -> 1
+                    "cht" -> 3
+                    // ... 其他语言的匹配逻辑 ...
+                    else -> -1 // 如果没有匹配，表示没有选中任何项
+                }
+                // ... 其他源语言的匹配逻辑 ...
+                else -> -1
+            }
+
+            // 如果找到了匹配的位置，则更新 Spinner 的选择
+            if (selectedPosition != -1) {
+                spLanguage.setSelection(selectedPosition)
+            }
+
+            // 更新界面显示
+            initAfter(fromLanguage, toLanguage)
+        }
+
     }
 
     private fun editTextListener() {
         edContent.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 ivClearTx.visibility = View.VISIBLE
+
                 val content = edContent.text.toString().trim()
                 if (content.isEmpty()) {
                     resultLay.visibility = View.GONE
@@ -185,9 +232,18 @@ class KeyboardActivity() : AppCompatActivity(), Parcelable {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 
+    var inputTx="";
     private fun transition() {
         // 获取输入的内容
-        val inputTx = edContent.text.toString().trim() // 将 Editable 转换为 String 然后 trim
+        inputTx = edContent.text.toString().trim() // 将 Editable 转换为 String 然后 trim
+
+
+
+
+
+
+
+
         // 判断输入内容是否为空
         if (inputTx.isNotEmpty()) { // 检查字符串非空
             tvTranslation.text = "翻译中..."
@@ -235,12 +291,12 @@ class KeyboardActivity() : AppCompatActivity(), Parcelable {
 
             override fun onResponse(call: Call, response: Response) {
                 //正常返回
-                goToUIThread(response.body()!!.string(), 1)
+                goToUIThread(response.body!!.string(), 1)
             }
 
         })
     }
-
+    var content = "";
     private fun goToUIThread(any: Any, key: Int) {
         //切换到主线程处理数据
         runOnUiThread {
@@ -258,7 +314,12 @@ class KeyboardActivity() : AppCompatActivity(), Parcelable {
                 )
                 tvTranslation.visibility = View.GONE
                 //显示翻译的结果
-                tvResult.text = trans_result[0].dst
+                tvResult.text = trans_result[0].dst    //翻译结果
+
+                tvShare?.visibility = View.VISIBLE//显示分享按钮
+                historyManager!!.saveTranslation(inputTx, trans_result[0].dst)//存储数据库
+                content= "原文:"+inputTx+" 译文:"+trans_result[0].dst;
+
                 resultLay.visibility = View.VISIBLE
                 beforeLay.visibility = View.GONE
                 afterLay.visibility = View.VISIBLE

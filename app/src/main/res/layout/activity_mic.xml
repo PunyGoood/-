@@ -1,6 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".MicActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--标题-->
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FFF"
+        android:elevation="3dp"
+        android:layout_marginTop="28dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="圣人翻译"
+            android:textColor="#000"
+            android:textSize="18sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!--滚动视图 当内容高度超出屏幕高度时可以上下滚动-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!--语音输入按钮-->
+            <LinearLayout
+                android:id="@+id/voice_input_lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btn_voice_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:background="@android:color/transparent"
+                    android:src="@mipmap/icon_mic"
+
+                    android:padding="0dp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
+
+
+
+
+            <!--翻译后显示的布局-->
+            <LinearLayout
+                android:id="@+id/after__lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#FFF"
+                    app:cardCornerRadius="5dp">
+
+                    <!--翻译源语言-->
+                    <TextView
+                        android:id="@+id/tv__from"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/stroke_black_radus"
+                        android:gravity="center"
+                        android:textColor="#000"
+                        android:textSize="14sp" />
+                </androidx.cardview.widget.CardView>
+
+                <ImageView
+                    android:id="@+id/icon_change"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@mipmap/icon_change" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#FFF"
+                    app:cardCornerRadius="5dp">
+
+                    <!--翻译目标语言-->
+                    <TextView
+                        android:id="@+id/tv__to"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/stroke_black_radus"
+                        android:gravity="center"
+                        android:textColor="#000"
+                        android:textSize="14sp" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+
+
+            <!--翻译后的结果显示-->
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/result__lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="翻译结果"
+                    android:textColor="#000"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="#FFF"
+                    android:orientation="vertical">
+
+                    <!--显示翻译的结果-->
+                    <TextView
+                        android:id="@+id/tv__result"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:textColor="#000" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+                        <!--复制翻译出来的结果-->
+                        <ImageView
+                            android:id="@+id/iv_copy_tx"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:padding="4dp"
+                            android:src="@mipmap/icon_copy" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#FFF"
+                app:cardCornerRadius="5dp">
+
+                <TextView
+                    android:id="@+id/tv__translation"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/stroke_black_radus"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="翻译"
+                    android:textColor="#000"
+                    android:textColorLink="#ABABAB"
+                    android:textSize="16sp" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_share"
+                android:visibility="invisible"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/stroke_black_radus"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="分享"
+                android:textColor="#000"
+                android:textColorLink="#ABABAB"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

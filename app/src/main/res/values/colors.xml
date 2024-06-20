@@ -14,5 +14,6 @@
     <color name="colorAccent">#009688</color> <!-- 一个强调色，用作按钮等 -->
     <color name="colorTextPrimary">#DE000000</color> <!-- 主要的文本颜色，87% 的黑色 -->
     <color name="colorTextSecondary">#8A000000</color> <!-- 次要的文本颜色 -->
+    <color name="red">#FFFF0000</color>
 
 </resources>

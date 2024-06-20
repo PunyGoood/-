@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="圣人翻译官隐私政策\n"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                />
+            <!-- Add your content here -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="一、我们如何收集和使用个人信息及权限\n
+
+您仅需使用浏览、了解圣人翻译官，您不需要提供信息。\n
+
+维护基本运行：为识别账号异常状态、了解产品适配性，向您提供浏览、搜索等基本服务，我们可能会直接或间接地收集、存储关于您使用的服务以及使用方式的信息并将这些信息关联，这些信息包括日志信息、设备信息。请注意，单独的日志信息、设备信息是无法识别自然人身份的信息。\n
+
+安全保障：为提高您使用我们及合作伙伴提供服务的安全性，保护您或其他用户或公众的人身财产安全免遭侵害，更好地预防钓鱼网站、欺诈、网络漏洞、计算机病毒、网络攻击、网络侵入等安全风险，更准确地识别违反法律法规或圣人翻译官服务相关协议规则的情况，我们可能会收集、使用或整合您的账户信息、交易信息、设备信息、日志信息以及我们关联公司、合作伙伴取得您授权或依据法律共享的个人信息，来综合判断您账户及交易风险、进行身份验证、检测及防范安全事件，并依法采取必要的记录、审计、分析、处置措施。\n
+
+相册权限：使您可以实现您设备中的照片、图片的上传，使您可以实现语音翻译功能。\n
+
+麦克风权限：使您可以实现语音翻译功能、语音评论、与客服实现语音交互以及语音教学交互功能，在这些功能中我们会收集您的录音内容以识别您的具体需求。\n
+
+地理位置权限：使您在通过蓝牙耳机使用圣人翻译官同传功能时，提高同传翻译的的连接稳定性及提高实时翻译的质量。\n
+
+如需全面了解我们获取用户设备的权限名称、类型、场景及目的等信息，您可点击《圣人翻译官应用权限申请与使用情况说明》。\n
+
+ 
+
+二、我们如何共享个人信息\n
+
+为向您提供特定服务，我们需要向我们的关联公司及其他服务提供商，以共享或委托处理的方式提供与服务目的所必要相关的您的个人信息。我们会采取必要的技术和管理措施以保护您的个人信息。\n
+
+您可点击《圣人翻译官个人信息第三方共享清单》查看第三方收集和使用您个人信息的情况。
+
+
+
+
+
+"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

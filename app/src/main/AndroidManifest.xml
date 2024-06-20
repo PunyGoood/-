@@ -1,43 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
-    <!--网络访问权限-->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 录音和相机权限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 硬件特性 -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <application
+        android:name=".SpeechApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon_launcher1"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icon_launcher1_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Test1"
+        android:theme="@style/AppTheme"
         tools:targetApi="31">
-
-        <!-- 主活动（启动活动） -->
+        <activity
+            android:name=".ImageResultActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme"/>
+        <!-- 字符串形式的API级别 -->
+        <!-- FileProvider配置 -->
+        <provider android:name="androidx.core.content.FileProvider" android:authorities="com.example.test1.fileProvider"
+            android:exported="false" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+ <!-- 活动声明 -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme"> <!-- 确保这里使用了正确的主题 -->
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <activity android:name=".KeyboardActivity" android:theme="@style/AppTheme">
-            <!-- intent-filter 或其他配置 -->
-        </activity>
-        <!-- 其他活动 -->
-        <activity android:name=".ClockActivity" />
+        </activity> <!-- 其他活动声明 -->
+        <activity
+            android:name=".KeyboardActivity"
+            android:theme="@style/LightTheme" />
+        <activity android:name=".ChildProtectionActivity" />
+        <activity
+            android:name=".ImageTransActivity"
+            android:theme="@style/LightTheme" />
+        <activity
+            android:name=".MicActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".MicActivity" />
-
-        <activity android:name=".ImageActivity" />
-        <activity android:name=".PersonalActivity" />
+        <activity android:name=".yinsi" />
+        <activity android:name=".aboutus" />
+        <activity android:name=".PersonalActivity" /> <!-- 添加TranslationRecordActivity的声明 -->
+        <activity
+            android:name=".TranslationRecordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TranslationDetailActivity"
+            android:exported="false"> <!-- 根据需要设置exported属性 -->
+            <!-- 这里可以添加intent-filter和其他配置 -->
+        </activity>
 
     </application>
 

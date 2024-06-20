@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/shareButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="分享给朋友" />
+
+            <Button
+                android:id="@+id/childProtectionGuideButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="儿童保护指南" />
+            <Button
+                android:id="@+id/yinsi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="隐私政策" />
+            <Button
+                android:id="@+id/aboutus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="关于我们" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

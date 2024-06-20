@@ -10,16 +10,6 @@
     <!-- 时钟按钮 -->
 
     <!-- 设置按钮 -->
-    <Button
-        android:id="@+id/button_clock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_marginStart="108dp"
-        android:layout_marginBottom="16dp"
-        android:text="历史记录"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- 话筒按钮 -->
 
@@ -28,13 +18,28 @@
     <!-- 图片按钮 -->
 
     <Button
-        android:id="@+id/button_settings"
+        android:id="@+id/button_clock"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="12dp"
+        android:background="?attr/selectableItemBackground"
+        android:drawableLeft="@mipmap/icon_history"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="设置"
+        android:background="?attr/selectableItemBackground"
+
+        android:drawableLeft="@mipmap/icon_settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -42,32 +47,14 @@
         android:id="@+id/button_mic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         android:text="语音翻译"
         app:layout_constraintCircle="@+id/button_keyboard"
         app:layout_constraintCircleAngle="45"
         app:layout_constraintCircleRadius="100dp"
-        tools:layout_editor_absoluteX="230dp"
-        tools:layout_editor_absoluteY="310dp" />
-
-    <Button
-        android:id="@+id/button_keyboard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="484dp"
-        android:layout_marginEnd="160dp"
-        android:text="文本翻译"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="图片翻译"
-        app:layout_constraintCircle="@+id/button_keyboard"
-        app:layout_constraintCircleAngle="315"
-        app:layout_constraintCircleRadius="100dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button_keyboard" />
+        tools:layout_editor_absoluteY="413dp"
+        android:background="@drawable/btn_circle"/>
 
     <!--<Button
         android:id="@+id/button_personal"
@@ -79,6 +66,29 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />-->
 
+    <Button
+        android:id="@+id/button_keyboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="文本翻译"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        android:background="@drawable/btn_circle"/>
+
+    <Button
+        android:id="@+id/button_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="图片翻译"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_keyboard"
+        app:layout_constraintCircle="@+id/button_keyboard"
+        app:layout_constraintCircleAngle="315"
+        app:layout_constraintCircleRadius="100dp"
+        tools:layout_editor_absoluteX="33dp"
+        android:background="@drawable/btn_circle"/>
+
     <EditText
         android:id="@+id/editText"
         android:layout_width="0dp"
@@ -88,8 +98,6 @@
         android:gravity="center"
         android:hint="欢迎使用圣人翻译"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="237dp"
         app:layout_constraintBottom_toTopOf="@+id/button_keyboard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
